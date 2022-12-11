@@ -8,15 +8,14 @@ from typing import Dict, List
 from .utils import calculate_score
 
 
-def combine_years(a, b, c, d, e, f, g, h, i) -> pd.DataFrame:
+def combine_years(*args) -> pd.DataFrame:
     """Unions all year's data into a single dataset
     :param
-        parameters: Parameters defined in parameters/preprocessing.yml
+        args: Several dataframes
     :return:
         A single pandas DatFrame
     """
-    raw_data = [a,b,c,d,e,f,g,h,i]
-    return pd.concat(raw_data, axis=0, join='outer', ignore_index=True)
+    return pd.concat(list(args), axis=0, join='outer', ignore_index=True)
 
 
 def new_cols(combined_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
