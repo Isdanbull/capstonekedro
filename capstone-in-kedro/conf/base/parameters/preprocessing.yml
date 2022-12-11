@@ -1,0 +1,29 @@
+# This is a boilerplate parameters config generated for pipeline 'preprocessing'
+# using Kedro 0.18.4.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://kedro.readthedocs.io/en/0.18.4/kedro_project_setup/configuration.html#parameters
+preprocessing:
+
+  combine_years:
+
+  new_cols:
+    score:
+      kills: 3
+      assists: 2
+      total cs: 0.02
+      firstbloodkill: 2
+      triplekills: 2
+      quadrakills: 2
+      pentakills: 3
+      deaths: -1
+
+  preprocess_data:
+    leagues:
+      - LCK
+      - LCS
+      - LEC
+      - NA LCS
+      - EU LCS
+
+

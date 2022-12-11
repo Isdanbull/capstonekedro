@@ -1,0 +1,67 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+# raw data
+2014_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2014_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2015_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2015_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2016_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2016_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2017_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2017_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2018_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2018_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2019_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2019_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2020_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2020_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2021_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2021_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+2022_raw_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2022_LoL_esports_match_data_from_OraclesElixir_20220324.csv
+  layer: raw
+
+#intermediate data
+#all_years_raw_data:
+#  type: pandas.ParquetDataSet
+#  filepath: data/02_intermediate/all_years_raw_data.pq
+  #schema:
+#  layer: intermediate
+
+#data_with_extra_cols:
+#  type: pandas.ParquetDataSet
+#  filepath: data/02_intermediate/data_with_extra_cols.pq
+#  layer: intermediate
+
+preprocessed_data:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/preprocessed_data.pq
+  layer: intermediate
