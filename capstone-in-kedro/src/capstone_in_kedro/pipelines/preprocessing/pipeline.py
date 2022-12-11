@@ -23,13 +23,13 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
             node(
                 func=new_cols,
-                inputs=['all_years_raw_data', 'parameters'],
+                inputs=['all_years_raw_data', 'params:new_cols'],
                 outputs='data_with_extra_cols',
                 name='new_cols_node',
             ),
             node(
                 func=filtered_data,
-                inputs=['data_with_extra_cols', 'parameters'],
+                inputs=['data_with_extra_cols', 'params:filtered_data'],
                 outputs='preprocessed_data',
                 name='filtering_node',
             ),

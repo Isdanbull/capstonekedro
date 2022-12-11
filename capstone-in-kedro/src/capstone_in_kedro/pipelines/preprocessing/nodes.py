@@ -29,7 +29,7 @@ def new_cols(combined_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
         Dataframe with new columns created
     """
     combined_data['side_pos'] = combined_data.side + combined_data.position
-    combined_data['score'] = calculate_score(combined_data, parameters['preprocessing']['new_cols']['score'])
+    combined_data['score'] = calculate_score(combined_data, parameters['score'])
 
     return combined_data
 
@@ -44,7 +44,7 @@ def filtered_data(all_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
         with unknown players excluded.
     """
     # filter the dataset to exclude team stats and minor region games
-    major_players = all_data[(all_data.league.isin(parameters['preprocessing']['preprocess_data']['leagues'])) & (all_data.position != 'team')]
+    major_players = all_data[(all_data.league.isin(parameters['leagues'])) & (all_data.position != 'team')]
 
     # identify games including unknown players
     game_ids_with_missing_players = major_players[major_players.playerid.isna()].gameid.unique()

@@ -50,20 +50,7 @@
   layer: raw
 
 #intermediate data
-#all_years_raw_data:
-#  type: pandas.ParquetDataSet
-#  filepath: data/02_intermediate/all_years_raw_data.pq
-  #schema:
-#  layer: intermediate
-
-#data_with_extra_cols:
-#  type: pandas.ParquetDataSet
-#  filepath: data/02_intermediate/data_with_extra_cols.pq
-#  layer: intermediate
-
 preprocessed_data:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/preprocessed_data.pq
   layer: intermediate
-
-  #lests test
