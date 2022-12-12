@@ -53,3 +53,21 @@ def count_games_per_day(all_data: pd.DataFrame, params: Dict[str:Dict]) -> pd.Da
     return all_data.groupby(group_by_cols)[agg_cols].count()
 
 
+def average_scores_per_day(source_dfs: Dict[str:pd.DataFrame], params: Dict[str:Dict]) -> pd.DataFrame:
+    """Merges together sum and count of stats and findes averages.
+    :param:
+        source_dfs: a Dictionary of DataFrames containing stats_per_day and games_per_day
+        params: Parameters defined in parameters/processing.yml
+    :return:
+        DataFrame with  average scores per day and number of games played for each player per day
+    """
+    stat_cols = params['stat_cols']
+    count_col = params['count_col']
+
+    merged_df = pd.merge(source_dfs['stats_per_day'], source_dfs['games_per_day'],
+                         left_index=True, right_index=True, how='inner')
+
+    for col in stat_cols:
+        merged_df[col] = merged_df[col] / merged_df[count_col]
+
+    return merged_df

@@ -37,3 +37,22 @@ count_games_per_day:
     - date
   agg_cols:
     - playerid
+average_scores_per_day:
+  stat_cols:
+    - killsat15
+    - deathsat15
+    - assistsat15
+    - total cs
+    - score
+    - firstbloodkill
+    - triplekills
+    - quadrakills
+    - pentakills
+    - gamelength
+    - visionscore
+    - kills
+    - deaths
+    - assists
+    - damagetochampions
+    - dpm
+  count_col: playerid
