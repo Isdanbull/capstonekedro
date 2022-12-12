@@ -1,0 +1,10 @@
+new_cols:
+  score:
+    kills: 3.0
+    assists: 2.0
+    total cs: 0.02
+    firstbloodkill: 2.0
+    triplekills: 2.0
+    quadrakills: 2.0
+    pentakills: 3.0
+    deaths: -1.0

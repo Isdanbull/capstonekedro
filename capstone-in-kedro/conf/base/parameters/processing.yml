@@ -3,3 +3,37 @@
 #
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.4/kedro_project_setup/configuration.html#parameters
+filtered_data:
+  leagues:
+    - LCK
+    - LCS
+    - LEC
+    - NA LCS
+    - EU LCS
+sum_stats_by_day:
+  group_by_cols:
+    - playerid
+    - date
+  agg_cols:
+    - killsat15
+    - deathsat15
+    - assistsat15
+    - total cs
+    - score
+    - firstbloodkill
+    - triplekills
+    - quadrakills
+    - pentakills
+    - gamelength
+    - visionscore
+    - kills
+    - deaths
+    - assists
+    - damagetochampions
+    - dpm
+count_games_per_day:
+  group_by_cols:
+    - playerid
+    - date
+  agg_cols:
+    - playerid
