@@ -3,7 +3,7 @@ This is a boilerplate pipeline 'preprocessing'
 generated using Kedro 0.18.4
 """
 import pandas as pd
-from typing import Dict, List
+from typing import Dict
 
 from .utils import calculate_score
 
@@ -18,7 +18,7 @@ def combine_years(*args) -> pd.DataFrame:
     return pd.concat(list(args), axis=0, join='outer', ignore_index=True)
 
 
-def new_cols(combined_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
+def new_cols(combined_data: pd.DataFrame, parameters: Dict[str:float]) -> pd.DataFrame:
     """Creates derived columns needed for model. 'side_pos' which combines players position
     with which side they are on (Blue or Red)
     :param
@@ -33,22 +33,7 @@ def new_cols(combined_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
     return combined_data
 
 
-def filtered_data(all_data: pd.DataFrame, parameters: Dict) -> pd.DataFrame:
-    """Filters rows to select required games.
-    :param
-        all_data: combined years data with new columns
-        parameters: Parameters defined in parameters/preprocessing.yml
-    :return:
-        Preprocessed data with only player data from major regions included and games
-        with unknown players excluded.
-    """
-    # filter the dataset to exclude team stats and minor region games
-    major_players = all_data[(all_data.league.isin(parameters['leagues'])) & (all_data.position != 'team')]
 
-    # identify games including unknown players
-    game_ids_with_missing_players = major_players[major_players.playerid.isna()].gameid.unique()
-
-    return major_players[~major_players.gameid.isin(game_ids_with_missing_players)]
 
 
 

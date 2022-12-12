@@ -7,7 +7,6 @@ from kedro.pipeline import Pipeline, node, pipeline
 from .nodes import (
     combine_years,
     new_cols,
-    filtered_data
 )
 
 
@@ -23,16 +22,14 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
             node(
                 func=new_cols,
-                inputs=['all_years_raw_data', 'params:new_cols'],
-                outputs='data_with_extra_cols',
+                inputs={
+                    'combined_data': 'all_years_raw_data',
+                    'parameters': 'params:preprocessing.new_cols.score'
+                },
+                outputs='preprocessed_data',
                 name='new_cols_node',
             ),
-            node(
-                func=filtered_data,
-                inputs=['data_with_extra_cols', 'params:filtered_data'],
-                outputs='preprocessed_data',
-                name='filtering_node',
-            ),
+
         ],
         outputs='preprocessed_data'
     )
